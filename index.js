@@ -102,7 +102,6 @@ const loadEventHandlers = () => {
   
     console.log(`\n${colors.magenta}${colors.bright}🎵 MUSIC SYSTEM${colors.reset}`);
     console.log('─'.repeat(40));
-    require('./events/music')(client);
     logSystem('LAVALINK MUSIC');
 
     require('./furrify');
