@@ -7,7 +7,6 @@ const lang = require('./loadLanguage');
 const cmdIcons = require('../UI/icons/commandicons');
 const { serverLevelingLogsCollection } = require('../mongodb');
 const afkHandler = require('./afkHandler');
-const { updateXp, getUserData } = require('../models/users');
 const { getUserCommands } = require('../models/customCommands');
 const { countingCollection } = require('../mongodb');
 const stickyTimers = new Map();
