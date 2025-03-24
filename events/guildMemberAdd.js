@@ -63,35 +63,35 @@ module.exports = async (client) => {
                 const randomImage = getRandomImage(data.welcomeImages);
                 
                
-                const shortTitle = truncateUsername(`Welcome ${memberCount}${suffix}`, 15);
+                const shortTitle = truncateUsername(`Welcome`, 15);
 
                 const welcomecard = new Wcard()
                     .setName(userName)
                     .setAvatar(member.user.displayAvatarURL({ format: 'png' }))
                     .setTitle(shortTitle) // Ensure the title is <= 15 characters
-                    .setColor("00e5ff")
+                    .setColor("A020F0")
                     .setBackground(randomImage);
                 
                 const card = await welcomecard.build();
                 const attachment = new AttachmentBuilder(card, { name: 'welcome.png' });
                 
                 const embed = new EmbedBuilder()
-                    .setTitle("Welcome!")
-                    .setDescription(`${member}, You are the **${memberCount}${suffix}** member of our server!`)
-                    .setColor("#00e5ff")
+                    .setTitle("Benvenuto su Furrytalia!")
+                    .setDescription(`${member}, sei il **${memberCount}${suffix}** membro del server!`)
+                    .setColor("#A020F0")
                     .setThumbnail(serverIcon)
                     .setImage('attachment://welcome.png')
                     .addFields(
-                        { name: 'Username', value: userName, inline: true },
-                        { name: 'Join Date', value: joinDate, inline: true },
-                        { name: 'Account Created', value: creationDate, inline: true }
+                        { name: 'Nome Utente', value: userName, inline: true },
+                        { name: 'Entrato il', value: joinDate, inline: true },
+                        { name: 'Account creato il', value: creationDate, inline: true }
                     )
-                    .setFooter({ text: "We're glad to have you here!", iconURL: serverIcon })
+                    .setFooter({ text: "Siamo felici che tu sia qui!", iconURL: serverIcon })
                     .setAuthor({ name: userName, iconURL: member.user.displayAvatarURL() })
                     .setTimestamp();
                 
                 welcomeChannel.send({
-                    content: `Hey ${member}!`,
+                    content: `🐾Yaaay a new frien~, awoooo ${member}!`,
                     embeds: [embed],
                     files: [attachment]
                 });                
